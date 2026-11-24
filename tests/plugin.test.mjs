@@ -109,3 +109,12 @@ test('Release-Packaging erzeugt valides USTAR .tar.gz ohne Symlinks oder Pfad-Tr
 
   assert.deepEqual(eintraege, ['plugin.manifest.json', 'dist/client.js']);
 });
+
+test('Release-Workflow installiert ohne peerDependencies (--omit=peer)', async () => {
+  const workflow = await fs.readFile(
+    path.join(ROOT_DIR, '.github/workflows/release.yml'),
+    'utf8'
+  );
+  assert.match(workflow, /npm ci --omit=peer/);
+  assert.match(workflow, /npm install --omit=peer/);
+});

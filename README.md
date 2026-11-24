@@ -22,7 +22,7 @@ Es erfüllt alle SDK- (`v1.0`), Manifest- und Bundle-Anforderungen, damit es dir
 ## Lokale Entwicklung & Prüfung
 
 ```bash
-npm install
+npm install --omit=peer
 npm run lint        # TypeScript-Prüfung (tsc --noEmit)
 npm test            # Build + Contract-Tests (node:test)
 npm run pack:plugin # Erzeugt build-release/sideline-plugin-v1.tar.gz + .sha256
