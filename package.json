@@ -1,0 +1,30 @@
+{
+  "name": "sidelineos-templateplugin",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Minimales, lauffähiges Plugin-Template für SidelineOS-Core (dev)",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moritztw/SIdelineOS-templateplugin.git"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "pack:plugin": "npm run build && node scripts/pack.mjs",
+    "lint": "tsc --noEmit",
+    "test": "npm run build && node --test tests/plugin.test.mjs",
+    "clean": "rm -rf dist build-release .bundle"
+  },
+  "peerDependencies": {
+    "@sidelineos/plugin-sdk": "^1.0.0",
+    "lucide-react": ">=0.546.0",
+    "react": ">=19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^7.0.2"
+  }
+}

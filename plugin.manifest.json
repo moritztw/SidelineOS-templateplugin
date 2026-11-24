@@ -1,0 +1,22 @@
+{
+  "id": "templateplugin",
+  "name": "Template Plugin",
+  "kurzbeschreibung": "Minimales, funktionsfreies Plugin-Template für SidelineOS-Core (dev).",
+  "version": "0.1.0",
+  "sdkVersion": "1.0",
+  "minCoreVersion": "0.1.0-alpha.1",
+  "autor": "moritztw",
+  "repositoryUrl": "https://github.com/moritztw/SIdelineOS-templateplugin",
+  "icon": "puzzle",
+  "status": "AKTIV",
+  "standardAktiviert": true,
+  "permissions": [
+    "team:read"
+  ],
+  "dbPrefix": "mod_templateplugin_",
+  "settingsAnker": {
+    "user": [],
+    "team": [],
+    "sysadmin": []
+  }
+}
