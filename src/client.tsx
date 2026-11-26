@@ -31,28 +31,28 @@ function TemplateMainView({ ctx }: { ctx: PluginLaufzeitKontext }) {
   const t = (key: string) => uebersetzeSchluessel(WOERTERBUCH, ctx.locale, key);
 
   return (
-    <section className="rounded-xl border border-slate-800 bg-slate-900/60 p-6 space-y-4">
+    <section className="rounded-xl border border-sl-border bg-sl-surface p-6 space-y-4">
       <header className="space-y-1">
-        <h2 className="text-base font-semibold text-white">{t('title')}</h2>
-        <p className="text-sm text-slate-400">{t('subtitle')}</p>
+        <h2 className="text-base font-semibold text-sl-heading">{t('title')}</h2>
+        <p className="text-sm text-sl-muted">{t('subtitle')}</p>
       </header>
 
       <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-        <div className="rounded-lg border border-slate-800 bg-slate-950/50 px-3 py-2">
-          <dt className="text-xs text-slate-400">{t('teamLabel')}</dt>
-          <dd className="font-medium text-slate-100">{ctx.team.name}</dd>
+        <div className="rounded-lg border border-sl-border bg-sl-canvas px-3 py-2">
+          <dt className="text-xs text-sl-muted">{t('teamLabel')}</dt>
+          <dd className="font-medium text-sl-primary">{ctx.team.name}</dd>
         </div>
-        <div className="rounded-lg border border-slate-800 bg-slate-950/50 px-3 py-2">
-          <dt className="text-xs text-slate-400">{t('seasonLabel')}</dt>
-          <dd className="font-medium text-slate-100">{ctx.gewaehlteSaison}</dd>
+        <div className="rounded-lg border border-sl-border bg-sl-canvas px-3 py-2">
+          <dt className="text-xs text-sl-muted">{t('seasonLabel')}</dt>
+          <dd className="font-medium text-sl-primary">{ctx.gewaehlteSaison}</dd>
         </div>
-        <div className="rounded-lg border border-slate-800 bg-slate-950/50 px-3 py-2">
-          <dt className="text-xs text-slate-400">{t('roleLabel')}</dt>
-          <dd className="font-medium text-slate-100">{ctx.aktiveTeamAnsicht}</dd>
+        <div className="rounded-lg border border-sl-border bg-sl-canvas px-3 py-2">
+          <dt className="text-xs text-sl-muted">{t('roleLabel')}</dt>
+          <dd className="font-medium text-sl-primary">{ctx.aktiveTeamAnsicht}</dd>
         </div>
-        <div className="rounded-lg border border-slate-800 bg-slate-950/50 px-3 py-2">
-          <dt className="text-xs text-slate-400">{t('versionLabel')}</dt>
-          <dd className="font-mono text-slate-100">{manifest.version}</dd>
+        <div className="rounded-lg border border-sl-border bg-sl-canvas px-3 py-2">
+          <dt className="text-xs text-sl-muted">{t('versionLabel')}</dt>
+          <dd className="font-mono text-sl-primary">{manifest.version}</dd>
         </div>
       </dl>
     </section>

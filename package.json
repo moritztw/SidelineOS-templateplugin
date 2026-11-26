@@ -1,8 +1,8 @@
 {
   "name": "sidelineos-templateplugin",
   "private": true,
-  "version": "0.1.0",
-  "description": "Minimales, lauffähiges Plugin-Template für SidelineOS-Core (dev)",
+  "version": "0.2.0",
+  "description": "Minimales, lauffähiges Plugin-Template für SidelineOS-Core",
   "license": "AGPL-3.0-only",
   "repository": {
     "type": "git",

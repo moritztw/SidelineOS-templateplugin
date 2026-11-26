@@ -1,6 +1,6 @@
 {
   "name": "SIdelineOS-templateplugin",
-  "description": "Minimales, lauffähiges Plugin-Template für SidelineOS-Core (dev).",
+  "description": "Minimales, lauffähiges Plugin-Template für SidelineOS-Core.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

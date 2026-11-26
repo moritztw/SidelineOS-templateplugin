@@ -62,13 +62,31 @@ test('plugin.manifest.json erfüllt alle Validierungsregeln von SidelineOS-Core 
   assert.match(manifest.repositoryUrl, /^https:\/\/github\.com\/[a-zA-Z0-9_.-]+\/[a-zA-Z0-9_.-]+$/);
 });
 
-test('dist/client.js ist ein gültiges ESM-Bundle mit Core-ImportMap-Externals', async () => {
+test('dist/client.js ist ein gültiges ESM-Bundle mit Core-ImportMap-Externals und semantischen sl-Tokens', async () => {
   const bundleCode = await fs.readFile(path.join(ROOT_DIR, 'dist/client.js'), 'utf8');
 
   assert.match(bundleCode, /from\s+["']@sidelineos\/plugin-sdk["']/);
   assert.match(bundleCode, /from\s+["']react\/jsx-runtime["']/);
   assert.doesNotMatch(bundleCode, /dangerouslySetInnerHTML/);
+  assert.doesNotMatch(bundleCode, /\b(?:bg|text|border)-slate-\d+/);
+  assert.match(bundleCode, /\bbg-sl-surface\b/);
+  assert.match(bundleCode, /\bbg-sl-canvas\b/);
+  assert.match(bundleCode, /\bborder-sl-border\b/);
+  assert.match(bundleCode, /\btext-sl-heading\b/);
+  assert.match(bundleCode, /\btext-sl-primary\b/);
+  assert.match(bundleCode, /\btext-sl-muted\b/);
   assert.match(bundleCode, /export\s*\{[\s\S]*default[\s\S]*\}/);
+});
+
+test('src/sdk.d.ts bildet die SDK-Erweiterungen aus Core Issue #13 (PR1–PR3) ab', async () => {
+  const sdkTypes = await fs.readFile(path.join(ROOT_DIR, 'src/sdk.d.ts'), 'utf8');
+
+  assert.match(sdkTypes, /hideHubTile\?:\s*boolean/);
+  assert.match(sdkTypes, /themes\?:\s*PluginThemePreset\[\]/);
+  assert.match(sdkTypes, /preferredTheme\?:\s*string/);
+  assert.match(sdkTypes, /interface PluginProviderKontext/);
+  assert.match(sdkTypes, /interface PluginProviderProps/);
+  assert.match(sdkTypes, /SIDELINE_CSS_TOKENS/);
 });
 
 test('Release-Packaging erzeugt valides USTAR .tar.gz ohne Symlinks oder Pfad-Traversal', async () => {
